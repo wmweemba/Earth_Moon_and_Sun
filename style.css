@@ -1,0 +1,90 @@
+/* The earth, and moon orbiting the sun */
+
+/* General body styling */
+body {
+    background-color: black; /* Sets the background color of the webpage to black */
+    margin: 0; /* Removes default margin for a cleaner look */
+}
+
+/* Container for the entire solar system simulation */
+.container {
+    height: 400px; /* Height of the container */
+    width: 400px; /* Width of the container */
+    position: relative; /* Allows positioning of child elements relative to this container */
+}
+
+/* Styling for the Sun */
+.sun {
+    width: 100px; /* Diameter of the Sun */
+    height: 100px; /* Diameter of the Sun */
+    background-color: yellow; /* Sun's color */
+    border-radius: 50%; /* Makes the Sun circular */
+    box-shadow: 0 0 30px white; /* Adds a glowing effect around the Sun */
+    position: absolute; /* Allows precise positioning within the container */
+    top: 50%; /* Centers the Sun vertically */
+    left: 50%; /* Centers the Sun horizontally */
+    transform: translate(-50%, -50%); /* Adjusts for the Sun's size to perfectly center it */
+}
+
+/* Styling for the Earth */
+.globe.earth {
+    background: aqua; /* Earth's color */
+    height: 30px; /* Diameter of the Earth */
+    width: 30px; /* Diameter of the Earth */
+    right: 28px; /* Positioning within the Earth's orbit */
+    top: 28px; /* Positioning within the Earth's orbit */
+}
+
+/* Styling for the Moon */
+.globe.moon {
+    background: #d6d6d6; /* Moon's color */
+    height: 12px; /* Diameter of the Moon */
+    width: 12px; /* Diameter of the Moon */
+    top: 8px; /* Positioning within the Moon's orbit */
+    right: 2px; /* Positioning within the Moon's orbit */
+}
+
+/* Shared styling for all globes (Earth and Moon) */
+.globe {
+    border-radius: 50%; /* Makes the globes circular */
+    position: absolute; /* Allows precise positioning within their orbits */
+}
+
+/* Earth's orbit around the Sun */
+.orbit.earth {
+    position: relative; /* Allows child elements (Earth) to be positioned relative to this orbit */
+    animation: orbit 36.5s linear infinite; /* Animates Earth's orbit in 36.5 seconds */
+    height: 300px; /* Diameter of Earth's orbit */
+    width: 300px; /* Diameter of Earth's orbit */
+    left: 50px; /* Centers the orbit relative to the Sun */
+    top: 50px; /* Centers the orbit relative to the Sun */
+}
+
+/* Moon's orbit around the Earth */
+.orbit.moon {
+    animation: orbit 2.7s linear infinite; /* Animates Moon's orbit in 2.7 seconds */
+    height: 80px; /* Diameter of Moon's orbit */
+    width: 80px; /* Diameter of Moon's orbit */
+    left: -25px; /* Centers the orbit relative to the Earth */
+    top: -25px; /* Centers the orbit relative to the Earth */
+}
+
+/* Shared styling for all orbits (Earth and Moon) */
+.orbit {
+    position: relative; /* Allows child elements (globes) to be positioned relative to this orbit */
+    border: solid; /* Adds a border to represent the orbit path */
+    border-color: white transparent transparent transparent; /* Makes the orbit path visible only on one side */
+    border-radius: 50%; /* Makes the orbit circular */
+    border-width: 1px 1px 0 0; /* Sets the thickness of the orbit path */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's dimensions */
+    transform: rotate(0deg); /* Initial rotation state */
+    transform-origin: center; /* Sets the rotation origin to the center of the orbit */
+}
+
+/* Animation for orbiting motion */
+@keyframes orbit {
+    to {
+        transform: rotate(360deg); /* Completes a full rotation */
+    }
+}
+
